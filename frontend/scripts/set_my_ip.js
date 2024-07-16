@@ -31,7 +31,6 @@ function updateEnvFile(ip) {
 
         fs.writeFileSync('.env', newEnvData.join('\n'));
 
-        console.log(`IP atualizado no arquivo .env: MY_IP=${ip}`);
     } catch (error) {
         console.error(`Erro ao atualizar o arquivo .env: ${error.message}`);
     }
