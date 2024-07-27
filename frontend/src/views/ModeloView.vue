@@ -35,6 +35,7 @@ async function salvar() {
 }
 
 function editar(modelo_para_editar) {
+  modelo.id = modelo_para_editar.id
   modelo.nome = modelo_para_editar.nome
   modelo.marca = modelo_para_editar.marca.id
   modelo.categoria = modelo_para_editar.categoria.id
@@ -48,7 +49,7 @@ async function excluir(id) {
 </script>
 
 <template>
-  <h1>Modelo</h1>
+  <h1>Modelos</h1>
   <hr />
   <div class="form">
     <input type="text" v-model="modelo.nome" placeholder="Nome" />
@@ -68,10 +69,34 @@ async function excluir(id) {
   <hr />
   <ul>
     <li v-for="modelo in modelos" :key="modelo.id">
-      <span @click="editar(modelo)">
+      <span>
         ({{ modelo.id }}) - {{ modelo.nome }} - {{ modelo.marca.nome }} - {{modelo.categoria.descricao}}</span
       >
-      <button @click="excluir(modelo.id)">X</button>
+      <button @click="editar(modelo)">Editar</button>
+      <button @click="excluir(modelo.id)">Excluir</button>
     </li>
   </ul>
 </template>
+
+<style scoped>
+.form {
+  margin-left: 1%;
+  display: flex;
+  width: 75%;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin-left: 1%;
+}
+
+select {
+  height: 40px;
+}
+</style>

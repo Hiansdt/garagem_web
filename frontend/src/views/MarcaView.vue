@@ -48,10 +48,35 @@ async function excluir(id) {
     <hr />
     <ul>
         <li v-for="marca in marcas" :key="marca.id">
-        <span @click="editar(marca)">
+        <span>
             ({{ marca.id }}) - {{ marca.nome }} - {{marca.nacionalidade}} - 
         </span>
-        <button @click="excluir(marca.id)">X</button>
+        <button @click="editar(marca)">Editar</button>
+        <button @click="excluir(marca.id)">Excluir</button>
         </li>
     </ul>
 </template>
+
+<style scoped>
+.form {
+  margin-left: 1%;
+  display: flex;
+  width: 75%;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin-left: 1%;
+}
+
+select {
+  height: 40px;
+}
+
+</style>

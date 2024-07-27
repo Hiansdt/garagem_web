@@ -26,4 +26,19 @@ onMounted(() => {
 </script>
 
 <template>
+  <h1>Garagem</h1>
+  <hr>
+  <p>Home</p>
 </template>
+
+<style scoped>
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+</style>

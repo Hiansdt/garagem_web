@@ -41,6 +41,7 @@ async function salvar() {
 }
 
 function editar(veiculo_para_editar) {
+  veiculo.id = veiculo_para_editar.id
   veiculo.modelo = veiculo_para_editar.modelo.id
   veiculo.cor = veiculo_para_editar.cor.id
   veiculo.acessorios = veiculo_para_editar.acessorios.map((acessorio) => acessorio.id)
@@ -55,7 +56,7 @@ async function excluir(id) {
 </script>
 
 <template>
-  <h1>Veiculo</h1>
+  <h1>Veiculos</h1>
   <hr />
   <div class="form">
     <select v-model="veiculo.modelo">
@@ -78,12 +79,37 @@ async function excluir(id) {
     <button @click="limpar">Limpar</button>
   </div>
   <hr />
+
   <ul>
     <li v-for="veiculo in veiculos" :key="veiculo.id">
       {{ veiculo.id }} - {{ veiculo.modelo.nome }} - {{ veiculo.cor.nome }} -
-      {{ veiculo.acessorios.map((acessorio) => acessorio.descricao).join(', ') }} - {{ veiculo.preco }}
+      {{ veiculo.acessorios.map((acessorio) => acessorio.descricao).join(', ') }} -
+      {{ veiculo.preco }}
       <button @click="editar(veiculo)">Editar</button>
       <button @click="excluir(veiculo.id)">Excluir</button>
     </li>
   </ul>
 </template>
+
+<style scoped>
+.form {
+  margin-left: 1%;
+  display: flex;
+  width: 75%;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin-left: 1%;
+}
+
+select {
+  height: 40px;
+}
+</style>
